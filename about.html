@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <style>
+      
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 2rem;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, #f11607 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+            filter: blur(50px);
+            z-index: -1;
+        }
+
+        .about-section {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-section::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 0%, rgba(241, 22, 7, 0.1) 100%);
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .about-image {
+            flex: 1;
+            position: relative;
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: 20px;
+            bottom: 20px;
+            border: 3px solid #f11607;
+            border-radius: 20px;
+            z-index: -1;
+            animation: borderPulse 2s infinite;
+        }
+
+        @keyframes borderPulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(241, 22, 7, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.03);
+        }
+
+        .about-content {
+            flex: 2;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: #f11607;
+            text-shadow: 2px 2px 4px rgba(241, 22, 7, 0.3);
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #f11607, transparent);
+            bottom: -10px;
+            left: 0;
+        }
+
+        p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .skills {
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .skills h2 {
+            color: #fc2206;
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .skills h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            background: #fc2206;
+            bottom: -5px;
+            left: 0;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+        }
+
+        .skill-item {
+            background: linear-gradient(145deg, #1a1a1a, #333);
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: 0.5s;
+        }
+
+        .skill-item:hover::before {
+            left: 100%;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(241, 22, 7, 0.3);
+            background: linear-gradient(145deg, #2a2a2a, #444);
+        }
+
+        .social-links {
+            margin-top: 3rem;
+        }
+
+        .social-links h2 {
+            color: #fc2206;
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .social-icon {
+            font-size: 2rem;
+            color: #fff;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .social-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #f11607;
+            bottom: -5px;
+            left: 0;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .social-icon:hover::after {
+            transform: scaleX(1);
+        }
+
+        .social-icon:hover {
+            color: #f11607;
+            transform: translateY(-8px);
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem;
+            }
+
+            .about-image {
+                max-width: 300px;
+                margin: 0 auto;
+                transform: none;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+
+            .skills h2::after {
+                left: 25%;
+                width: 50%;
+            }
+        }
+
+        /* Add animation for page load */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="about-section animate-fade-in">
+            <div class="about-image">
+                <img src="ka.png.jpg" alt="Divyansh Kumar">
+            </div>
+            <div class="about-content">
+                <h1>About Me</h1>
+                <p><i>
+                    Hello! I'm <i>PRAVEEN THAKUR</i>, a passionate and innovative front-end developer dedicated to crafting exceptional digital experiences. With a blend of creativity and technical expertise, I transform complex problems into elegant solutions through clean, efficient, and maintainable code.
+                </i> </p>
+                <p>
+                    My journey in web development began with an insatiable curiosity about the digital world. Today, I specialize in building responsive, user-centric websites that not only look stunning but also deliver seamless functionality. I'm constantly exploring new technologies and best practices to stay at the forefront of web development.
+                </p>
+                
+                <div class="skills">
+                    <h2>Technical Expertise</h2>
+                    <div class="skill-list">
+                        <div class="skill-item">HTML5</div>
+                        <div class="skill-item">CSS</div>
+                        <div class="skill-item">JavaScript</div>
+                        <div class="skill-item">GitHub</div>
+                        <div class="skill-item">Responsive Design</div>
+                        <div class="skill-item">Tailwind CSS</div>
+
+                    </div>
+                </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
